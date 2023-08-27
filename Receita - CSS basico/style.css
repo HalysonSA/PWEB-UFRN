@@ -1,0 +1,58 @@
+p.verso{
+
+    color: blue;
+ 
+ }
+
+ p.mote{
+    mote: 20px;
+    color: red;
+ }
+
+ a{
+    color: purple;
+ }
+
+ a:hover{
+    color: blue;
+    text-decoration: none;
+ }
+
+ img.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+ }
+div.poeta{
+    border-radius: 50%;
+}
+ div.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 10px;
+ }
+
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th{
+        background-color: #ccc;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
