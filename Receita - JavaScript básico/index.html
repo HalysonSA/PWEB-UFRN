@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<style>
+  button {
+    cursor: pointer;
+  }
+  .content {
+    padding: 10px;
+    transition: opacity 0.5s ease-in-out;
+  }
+</style>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <div id="content" class="content"></div>
+    <div>
+      <button id="btn-load" onclick="pageContent()">
+        Carregando cervejas...
+      </button>
+    </div>
+
+    <script>
+      let count = 0;
+
+      function pageContent() {
+        const contentDiv = document.getElementById("content");
+
+        if (count % 2) {
+          contentDiv.style.opacity = 0;
+          setTimeout(() => {
+            contentDiv.textContent = "";
+          }, 500);
+        } else {
+          const text = document.createTextNode("Guinness");
+          text.id = "guinness";
+          contentDiv.textContent = "";
+          contentDiv.appendChild(text);
+          contentDiv.style.opacity = 1;
+        }
+
+        count++;
+      }
+    </script>
+  </body>
+</html>
