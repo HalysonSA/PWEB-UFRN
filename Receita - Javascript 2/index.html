@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="meu amor">
+      <button id="botaoCarregar">Carregando cervejas...</button>
+      <button id="botaoRandom">Embaralhar</button>
+      <button id="botaoDesc">Ordem Decrescente</button>
+      <button id="botaoAsc">Ordem Ascendente</button>
+    </div>
+  </body>
+
+  <script>
+    let cervejas = [
+      "Guiness",
+      "Desperados",
+      "Becks",
+      "Budweiser",
+      "Corona",
+      "Heineken",
+      "Stella Artois",
+    ];
+
+    function transformar(item) {
+      return `<tr><td>${item}</td></tr>`;
+    }
+
+    function carregarDiv() {
+      let div = document.getElementById("meu amor");
+      let tabela = document.createElement("table");
+      tabela.id = "table";
+      let corpo = document.createElement("tbody");
+      let header = document.createElement("thead");
+      let cabecalho = document.createElement("tr");
+      let coluna = document.createElement("th");
+      coluna.innerText = "Cervejas";
+
+      let linhas = cervejas.map((e) => transformar(e));
+      corpo.innerHTML = linhas.join("");
+      console.log(linhas);
+
+      cabecalho.appendChild(coluna);
+      header.appendChild(cabecalho);
+      tabela.appendChild(header);
+      tabela.appendChild(corpo);
+      div.appendChild(tabela);
+      botao.setAttribute("disabled", true);
+    }
+
+    function randomData() {
+      let tabela = document.getElementById("table");
+      let corpo = tabela.getElementsByTagName("tbody")[0];
+      let linhas = corpo.getElementsByTagName("tr");
+      let linhasArray = Array.from(linhas);
+      let linhasRandom = linhasArray.sort(() => Math.random() - 0.5);
+      linhasRandom.map((e) => corpo.appendChild(e));
+    }
+
+    function orderByDesc() {
+      let tabela = document.getElementById("table");
+      let corpo = tabela.getElementsByTagName("tbody")[0];
+      let linhas = corpo.getElementsByTagName("tr");
+      let linhasArray = Array.from(linhas);
+      let linhasRandom = linhasArray.sort((a, b) =>
+        a.innerText > b.innerText ? -1 : 1
+      );
+      linhasRandom.map((e) => corpo.appendChild(e));
+    }
+
+    function orderByAsc() {
+      let tabela = document.getElementById("table");
+      let corpo = tabela.getElementsByTagName("tbody")[0];
+      let linhas = corpo.getElementsByTagName("tr");
+      let linhasArray = Array.from(linhas);
+      let linhasRandom = linhasArray.sort((a, b) =>
+        a.innerText > b.innerText ? 1 : -1
+      );
+      linhasRandom.map((e) => corpo.appendChild(e));
+    }
+
+    let botao = document.getElementById("botaoCarregar");
+    let botaoRandom = document.getElementById("botaoRandom");
+    let botaoDesc = document.getElementById("botaoDesc");
+    let botaoAsc = document.getElementById("botaoAsc");
+
+    botao.addEventListener("click", carregarDiv);
+    botaoRandom.addEventListener("click", randomData);
+    botaoDesc.addEventListener("click", orderByDesc);
+    botaoAsc.addEventListener("click", orderByAsc);
+  </script>
+</html>
