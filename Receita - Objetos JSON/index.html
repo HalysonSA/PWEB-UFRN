@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  </head>
+
+  <body>
+    <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+
+    <div id="cervejasDiv"></div>
+  </body>
+
+  <script>
+    let cervejas = [
+      {
+        name: "Guiness",
+        style: "Red Ale",
+        alcohol: "10%",
+        ibu: "50",
+      },
+
+      {
+        name: "Desperados",
+        style: "English IPA",
+        alcohol: "6%",
+        ibu: "30",
+      },
+
+      {
+        name: "Becks",
+        style: "Imperial Stout",
+        alcohol: "5%",
+        ibu: "40",
+      },
+    ];
+
+    //cs é um array de cervejas
+
+    const carregarDiv = (cs, id = "cervejasDiv") => {
+      const div = document.createElement("div");
+
+      div.innerHTML = `<table><thead><tr>
+            ${Object.keys(cs[0])
+              .map((key) => `<th>${key}</th>`)
+              .join("\n")}
+        </tr></thead><tbody>${cs
+          .map((item) => {
+            return `<tr>${Object.values(item)
+              .map((value) => `<td>${value}</td>`)
+              .join("\n")}</tr>`;
+          })
+          .join("\n")}</tbody></table>`;
+
+      document.getElementById(id).appendChild(div);
+    };
+
+    let botao = document.getElementById("botaoCarregar");
+
+    botao.addEventListener("click", () => carregarDiv(cervejas));
+  </script>
+</html>
