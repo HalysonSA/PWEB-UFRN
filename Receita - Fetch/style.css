@@ -1,0 +1,60 @@
+
+  
+  div {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  
+  button {
+    color: black;
+    width: 100px;
+    border:none;
+    height: 60px;
+    font-size: 14px;
+    font-family: "Raleway", sans-serif;
+    transition: 0.6s;
+    overflow: hidden;
+}
+button:hover {
+      box-shadow:  0 0 20px rgba(0, 0, 0, 0.5);
+      transform:  scale(1.1);
+  }
+  
+  button:before {
+    display: block;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    filter: blur(30px);
+  }
+  
+  button:hover {
+    background: white;
+    cursor: pointer;
+  }
+  
+
+  table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  table tr:hover {background-color: #ddd;}
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
